@@ -17,7 +17,7 @@ float angBaseActual = 0, angCodoActual = 0;
 float angBaseDestino, angCodoDestino;
 
 // Tiempo estimado para que el servo gire 90°
-const int tiempoGiro90 = 1000;  // milisegundos
+const int tiempoGiro90 = 1000; 
 
 void setup() {
   Serial.begin(9600);
@@ -28,13 +28,13 @@ void setup() {
   Serial.println("Ingrese coordenadas X Y:");
 }
 
-// Calcula el ángulo del codo (segundo eslabón)
+// Calcula el ángulo del codo segundo eslabón
 float calcularAnguloCodo(float x, float y) {
   float numerador = (x * x) + (y * y) - (longEslabon1 * longEslabon1) - (longEslabon2 * longEslabon2);
   float denominador = 2 * longEslabon1 * longEslabon2;
   float cosAngulo = numerador / denominador;
 
-  // Verifica que el valor esté en el rango válido [-1, 1]
+  // Verifica que el valor esté en el rango válido en este caso [-1, 1]
   cosAngulo = constrain(cosAngulo, -1.0, 1.0);
   return acos(cosAngulo) * RAD_A_DEG;
 }
