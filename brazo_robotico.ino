@@ -46,10 +46,9 @@ bool dentroDelAlcance(float x, float y) {
   return distancia <= (longEslabon1 + longEslabon2);
 }
 
-// Simula el movimiento de un servo de rotación continua
 void moverServoContinuo(Servo &servo, float angInicio, float angDestino) {
   float diferencia = angDestino - angInicio;
-  if (fabs(diferencia) < 1.0) return; // movimiento pequeño → ignorar
+  if (fabs(diferencia) < 1.0) return; 
 
   int direccion = (diferencia > 0) ? 1 : -1;
   int tiempoMovimiento = abs(diferencia) * tiempoGiro90 / 90.0;
@@ -57,14 +56,14 @@ void moverServoContinuo(Servo &servo, float angInicio, float angDestino) {
   // Control de dirección
   servo.write(direccion > 0 ? 180 : 0);
   delay(tiempoMovimiento);
-  servo.write(90); // detener
+  servo.write(90);
 }
 
 void loop() {
   if (Serial.available() > 0) {
     coordX = Serial.parseFloat();
     coordY = Serial.parseFloat();
-    while (Serial.available() > 0) Serial.read(); // limpiar buffer
+    while (Serial.available() > 0) Serial.read();
 
     if (coordX == 0 && coordY == 0) {
       Serial.println("Entrada inválida. Intente nuevamente.");
