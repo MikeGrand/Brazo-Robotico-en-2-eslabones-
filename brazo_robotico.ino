@@ -1,13 +1,11 @@
 #include <Servo.h>
 
-// Conversión entre grados y radianes
 const float DEG_A_RAD = PI / 180.0;
 const float RAD_A_DEG = 180.0 / PI;
 
 Servo servoBase;
 Servo servoCodo;
 
-// Longitud de los eslabones del brazo
 float longEslabon1 = 8;
 float longEslabon2 = 6;
 
