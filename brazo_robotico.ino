@@ -9,12 +9,11 @@ Servo servoCodo;
 float longEslabon1 = 8;
 float longEslabon2 = 6;
 
-// Coordenadas de destino y ángulos actuales
+
 float coordX, coordY;
 float angBaseActual = 0, angCodoActual = 0;
 float angBaseDestino, angCodoDestino;
 
-// Tiempo estimado para que el servo gire 90°
 const int tiempoGiro90 = 1000; 
 
 void setup() {
@@ -26,18 +25,15 @@ void setup() {
   Serial.println("Ingrese coordenadas X Y:");
 }
 
-// Calcula el ángulo del codo segundo eslabón
 float calcularAnguloCodo(float x, float y) {
   float numerador = (x * x) + (y * y) - (longEslabon1 * longEslabon1) - (longEslabon2 * longEslabon2);
   float denominador = 2 * longEslabon1 * longEslabon2;
   float cosAngulo = numerador / denominador;
 
-  // Verifica que el valor esté en el rango válido en este caso [-1, 1]
   cosAngulo = constrain(cosAngulo, -1.0, 1.0);
   return acos(cosAngulo) * RAD_A_DEG;
 }
 
-// Calcula el ángulo de la base (primer eslabón)
 float calcularAnguloBase(float x, float y, float angCodo) {
   float parte1 = atan2(y, x);
   float parte2 = atan2(longEslabon2 * sin(angCodo * DEG_A_RAD),
@@ -45,7 +41,6 @@ float calcularAnguloBase(float x, float y, float angCodo) {
   return (parte1 - parte2) * RAD_A_DEG;
 }
 
-// Comprueba si la coordenada está dentro del alcance del brazo
 bool dentroDelAlcance(float x, float y) {
   float distancia = sqrt(x * x + y * y);
   return distancia <= (longEslabon1 + longEslabon2);
