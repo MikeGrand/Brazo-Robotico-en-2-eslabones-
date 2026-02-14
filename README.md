@@ -23,3 +23,29 @@ El sistema:
 - Calcula los ángulos necesarios
 - Mueve el brazo automáticamente
 - Si la coordenada está fuera del alcance, el sistema lo notifica.
+
+## Funcionamiento Interno del Código
+Definición de Parámetros Físicos
+float longEslabon1 = 8;
+float longEslabon2 = 6;
+Se definen las longitudes de los dos eslabones del brazo:
+Eslabón 1: 8 unidades
+Eslabón 2: 6 unidades
+Estas medidas determinan el alcance máximo del brazo.
+
+## Conversión de Ángulos
+const float DEG_A_RAD = PI / 180.0;
+const float RAD_A_DEG = 180.0 / PI;
+Se definen constantes para convertir entre:
+
+- Grados → Radianes
+
+- Radianes → Grados
+
+Necesario porque:
+
+- sin(), cos(), atan2() trabajan en radianes
+
+- Los servos trabajan en grados
+
+## Verificación de Alcance
