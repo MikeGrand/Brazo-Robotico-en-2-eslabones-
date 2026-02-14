@@ -9,3 +9,17 @@ Servo Codo (articulación intermedia)
 
 El sistema utiliza cinemática inversa para calcular automáticamente los ángulos necesarios para alcanzar una coordenada específica (X, Y) en el plano cartesiano, el usuario introduce coordenadas por el Monitor Serial, y el brazo se mueve automáticamente hacia esa posición si está dentro del alcance físico.
 
+¿Qué hace el usuario? El usuario (operador del sistema):
+
+Abre el Monitor Serial, ingresa coordenadas en formato: X Y
+
+Ejemplo: 6 5
+
+Presiona Enter.
+
+El sistema: 
+
+- Valida las coordenadas
+- Calcula los ángulos necesarios
+- Mueve el brazo automáticamente
+- Si la coordenada está fuera del alcance, el sistema lo notifica.
