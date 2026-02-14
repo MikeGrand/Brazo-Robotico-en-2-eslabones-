@@ -48,4 +48,22 @@ Necesario porque:
 
 - Los servos trabajan en grados
 
-## Verificación de Alcance
+## Ciclo Principal (loop())
+
+El programa:
+
+- Espera datos del Monitor Serial
+
+- Lee X e Y
+
+- Valida que no sean 0 0
+
+- Verifica alcance
+
+- Calcula ángulos
+
+- Mueve los servos
+
+- Actualiza ángulos actuales
+
+Solicita nuevas coordenadas
